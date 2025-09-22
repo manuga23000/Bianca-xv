@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis XV Años - Bianca</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .dancing-script {
+        font-family: "Dancing Script", cursive;
+      }
+      .cormorant {
+        font-family: "Cormorant Garamond", serif;
+      }
+      .bg-gradient-pink {
+        background: linear-gradient(
+          135deg,
+          #fdf2f8 0%,
+          #fce7f3 25%,
+          #fbcfe8 50%,
+          #f9a8d4 75%,
+          #f472b6 100%
+        );
+      }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+      .fade-in {
+        animation: fadeIn 2s ease-in;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .pulse-pink {
+        animation: pulsePink 3s infinite;
+      }
+      @keyframes pulsePink {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(244, 114, 182, 0.5);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(244, 114, 182, 0.8);
+        }
+      }
+      .countdown-digit {
+        background: linear-gradient(135deg, #f9a8d4, #f472b6);
+        box-shadow: 0 10px 25px rgba(244, 114, 182, 0.3);
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-pink min-h-screen overflow-x-hidden">
+    <!-- Decorative floating elements -->
+    <div class="fixed inset-0 pointer-events-none">
+      <div
+        class="absolute top-10 left-10 w-4 h-4 bg-pink-300 rounded-full opacity-60 floating"
+        style="animation-delay: 0s"
+      ></div>
+      <div
+        class="absolute top-32 right-20 w-6 h-6 bg-rose-300 rounded-full opacity-50 floating"
+        style="animation-delay: 1s"
+      ></div>
+      <div
+        class="absolute bottom-32 left-16 w-5 h-5 bg-pink-400 rounded-full opacity-40 floating"
+        style="animation-delay: 2s"
+      ></div>
+      <div
+        class="absolute bottom-20 right-16 w-3 h-3 bg-rose-400 rounded-full opacity-70 floating"
+        style="animation-delay: 3s"
+      ></div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+      <!-- Header Section -->
+      <div class="text-center fade-in">
+        <h1
+          class="dancing-script text-7xl md:text-9xl text-pink-700 mb-4 drop-shadow-lg"
+        >
+          Mis Quince Años
+        </h1>
+        <div
+          class="w-32 h-1 bg-gradient-to-r from-pink-400 to-rose-400 mx-auto mb-8"
+        ></div>
+      </div>
+
+      <!-- Main Name Section -->
+      <div class="text-center mb-12 fade-in" style="animation-delay: 0.5s">
+        <div
+          class="glass-effect rounded-3xl p-8 mx-auto max-w-md shadow-2xl pulse-pink"
+        >
+          <h2 class="dancing-script text-6xl md:text-7xl text-pink-800 mb-4">
+            Bianca
+          </h2>
+          <div class="flex justify-center mb-6">
+            <svg
+              class="w-16 h-16 text-pink-600"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Date Section -->
+      <div class="text-center mb-12 fade-in" style="animation-delay: 1s">
+        <div class="glass-effect rounded-2xl p-6 mx-auto max-w-lg shadow-xl">
+          <p class="cormorant text-2xl text-pink-700 mb-4">
+            Te invito a celebrar conmigo
+          </p>
+          <div class="flex justify-center items-center space-x-4 mb-4">
+            <div class="text-center">
+              <p class="cormorant text-lg text-pink-600">Viernes</p>
+              <p class="dancing-script text-5xl text-pink-800 font-bold">25</p>
+            </div>
+            <div class="text-center">
+              <p class="cormorant text-lg text-pink-600">Abril</p>
+              <p class="dancing-script text-3xl text-pink-800">2026</p>
+            </div>
+          </div>
+          <p class="cormorant text-xl text-pink-700">20:30 hs</p>
+        </div>
+      </div>
+
+      <!-- Countdown Timer -->
+      <div class="text-center mb-12 fade-in" style="animation-delay: 1.5s">
+        <h3 class="dancing-script text-4xl text-pink-700 mb-6">Faltan</h3>
+        <div class="flex justify-center space-x-4" id="countdown">
+          <div class="countdown-digit text-center p-4 rounded-xl text-white">
+            <div class="text-3xl font-bold" id="days">000</div>
+            <div class="text-sm cormorant">DÍAS</div>
+          </div>
+          <div class="countdown-digit text-center p-4 rounded-xl text-white">
+            <div class="text-3xl font-bold" id="hours">00</div>
+            <div class="text-sm cormorant">HORAS</div>
+          </div>
+          <div class="countdown-digit text-center p-4 rounded-xl text-white">
+            <div class="text-3xl font-bold" id="minutes">00</div>
+            <div class="text-sm cormorant">MINUTOS</div>
+          </div>
+          <div class="countdown-digit text-center p-4 rounded-xl text-white">
+            <div class="text-3xl font-bold" id="seconds">00</div>
+            <div class="text-sm cormorant">SEGUNDOS</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location Section -->
+      <div class="text-center mb-12 fade-in" style="animation-delay: 2s">
+        <div class="glass-effect rounded-2xl p-6 mx-auto max-w-lg shadow-xl">
+          <h3 class="dancing-script text-4xl text-pink-700 mb-4">Ubicación</h3>
+          <p class="cormorant text-xl text-pink-800 mb-4">
+            Salón de Eventos "La Rosa"
+          </p>
+          <p class="cormorant text-lg text-pink-600 mb-6">
+            Av. Libertador 1234, Buenos Aires
+          </p>
+          <button
+            onclick="openLocation()"
+            class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-3 rounded-full hover:from-pink-600 hover:to-rose-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            <span class="cormorant text-lg">Ver Ubicación</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- RSVP Section -->
+      <div class="text-center mb-12 fade-in" style="animation-delay: 2.5s">
+        <div class="glass-effect rounded-2xl p-6 mx-auto max-w-lg shadow-xl">
+          <h3 class="dancing-script text-4xl text-pink-700 mb-4">
+            Confirmar Asistencia
+          </h3>
+          <p class="cormorant text-lg text-pink-600 mb-6">
+            Por favor, enviar respuesta al siguiente número
+          </p>
+          <button
+            onclick="confirmAttendance()"
+            class="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-full hover:from-green-600 hover:to-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            <span class="cormorant text-lg">Confirmar por WhatsApp</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dress Code Section -->
+      <div class="text-center mb-12 fade-in" style="animation-delay: 3s">
+        <div class="glass-effect rounded-2xl p-6 mx-auto max-w-lg shadow-xl">
+          <h3 class="dancing-script text-4xl text-pink-700 mb-4">Dress Code</h3>
+          <div class="flex justify-center mb-4">
+            <svg
+              class="w-12 h-12 text-pink-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+          <p class="cormorant text-lg text-pink-800 text-center">
+            Vestimenta elegante sport<br />
+            <span class="text-pink-600">Evitar colores rosa y lila</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Gift Section -->
+      <div class="text-center mb-12 fade-in" style="animation-delay: 3.5s">
+        <div class="glass-effect rounded-2xl p-6 mx-auto max-w-lg shadow-xl">
+          <h3 class="dancing-script text-4xl text-pink-700 mb-4">
+            Valor de la Tarjeta
+          </h3>
+          <div class="flex justify-center mb-4">
+            <svg
+              class="w-12 h-12 text-pink-600"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"
+              />
+            </svg>
+          </div>
+          <p class="cormorant text-lg text-pink-800 mb-4">
+            Tu entrada a esta noche mágica se confirma con el abono de la
+            tarjeta.
+          </p>
+          <div class="space-y-2 text-pink-700 cormorant text-lg">
+            <p><strong>Adulto:</strong> $65.000</p>
+            <p><strong>Adolescente:</strong> $35.000</p>
+            <p><strong>Niños (4 a 11 años):</strong> $30.000</p>
+            <p><strong>Brindis 23hs:</strong> $21.000</p>
+          </div>
+          <button
+            onclick="showBankData()"
+            class="mt-6 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-3 rounded-full hover:from-pink-600 hover:to-rose-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
+            <span class="cormorant text-lg">Datos Bancarios</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Message Section -->
+      <div class="text-center mb-12 fade-in" style="animation-delay: 4s">
+        <div class="glass-effect rounded-2xl p-8 mx-auto max-w-2xl shadow-xl">
+          <div class="flex justify-center mb-6">
+            <svg
+              class="w-16 h-16 text-pink-600"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              />
+            </svg>
+          </div>
+          <p class="cormorant text-lg text-pink-700 leading-relaxed">
+            "Hay recuerdos que no voy a borrar, personas que no voy a olvidar y
+            momentos como este que siempre voy a guardar, porque son parte de mi
+            vida, porque simplemente los quiero y es mi deseo que compartan
+            conmigo la alegría de..."
+          </p>
+          <h3 class="dancing-script text-5xl text-pink-800 mt-4">
+            ¡Mis Quince Años!
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Countdown Timer
+      function updateCountdown() {
+        const eventDate = new Date("2026-04-25T20:30:00").getTime();
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days
+          .toString()
+          .padStart(3, "0");
+        document.getElementById("hours").textContent = hours
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("minutes").textContent = minutes
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("seconds").textContent = seconds
+          .toString()
+          .padStart(2, "0");
+
+        if (distance < 0) {
+          document.getElementById("countdown").innerHTML =
+            "<h3 class='dancing-script text-4xl text-pink-700'>¡Es hoy!</h3>";
+        }
+      }
+
+      // Update countdown every second
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // Functions for buttons
+      function openLocation() {
+        window.open(
+          "https://maps.google.com/?q=Salon+de+Eventos+La+Rosa+Buenos+Aires",
+          "_blank"
+        );
+      }
+
+      function confirmAttendance() {
+        const message =
+          "Hola! Quiero confirmar mi asistencia a los XV de Bianca el 25/04/2026";
+        window.open(
+          `https://wa.me/1234567890?text=${encodeURIComponent(message)}`,
+          "_blank"
+        );
+      }
+
+      function showBankData() {
+        alert(
+          "Datos Bancarios:\n\nBanco: Banco Nación\nCBU: 0110599520000012345678\nAlias: BIANCA.XV.2026\nTitular: [Nombre del titular]"
+        );
+      }
+
+      // Smooth scroll animation for elements
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = "running";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
