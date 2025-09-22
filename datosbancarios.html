@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Datos Bancarios - XV Bianca</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .dancing-script {
+        font-family: "Dancing Script", cursive;
+      }
+      .cormorant {
+        font-family: "Cormorant Garamond", serif;
+      }
+      .bg-gradient-pink {
+        background: linear-gradient(
+          135deg,
+          #fdf2f8 0%,
+          #fce7f3 25%,
+          #fbcfe8 50%,
+          #f9a8d4 75%,
+          #f472b6 100%
+        );
+      }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+      .fade-in {
+        animation: fadeIn 2s ease-in;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .pulse-pink {
+        animation: pulsePink 3s infinite;
+      }
+      @keyframes pulsePink {
+        0%,
+        100% {
+          box-shadow: 0 0 20px rgba(244, 114, 182, 0.5);
+        }
+        50% {
+          box-shadow: 0 0 40px rgba(244, 114, 182, 0.8);
+        }
+      }
+      .copy-button {
+        transition: all 0.3s ease;
+      }
+      .copy-button:hover {
+        transform: scale(1.05);
+      }
+      .copied {
+        background: #10b981 !important;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-pink min-h-screen overflow-x-hidden">
+    <!-- Decorative floating elements and flowers -->
+    <div class="fixed inset-0 pointer-events-none">
+      <!-- Corner flowers -->
+      <div class="absolute top-4 left-4 floating" style="animation-delay: 1.5s">
+        <svg
+          class="w-12 h-12 text-pink-400 opacity-70"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16Z"
+          />
+          <circle cx="12" cy="12" r="2" />
+        </svg>
+      </div>
+
+      <div
+        class="absolute top-4 right-4 floating"
+        style="animation-delay: 2.5s"
+      >
+        <svg
+          class="w-10 h-10 text-rose-400 opacity-60"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.66,13.07L7.25,14.48C5.07,12.31 5.07,8.69 7.25,6.52L8.66,7.93C7.84,8.75 7.84,10.25 8.66,13.07M15.34,13.07C16.16,10.25 16.16,8.75 15.34,7.93L16.75,6.52C18.93,8.69 18.93,12.31 16.75,14.48L15.34,13.07M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"
+          />
+        </svg>
+      </div>
+
+      <div
+        class="absolute bottom-4 left-4 floating"
+        style="animation-delay: 0.8s"
+      >
+        <svg
+          class="w-14 h-14 text-pink-300 opacity-50"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,5A3,3 0 0,1 22,8V14A3,3 0 0,1 19,17A3,3 0 0,1 16,14V8A3,3 0 0,1 19,5M5,8A3,3 0 0,1 8,11V17A3,3 0 0,1 5,20A3,3 0 0,1 2,17V11A3,3 0 0,1 5,8M12,16A3,3 0 0,1 15,19V22H9V19A3,3 0 0,1 12,16Z"
+          />
+        </svg>
+      </div>
+
+      <div
+        class="absolute bottom-4 right-4 floating"
+        style="animation-delay: 3.2s"
+      >
+        <svg
+          class="w-11 h-11 text-rose-300 opacity-65"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,15A7,7 0 0,1 5,8A7,7 0 0,1 12,1A7,7 0 0,1 19,8A7,7 0 0,1 12,15M12,3A5,5 0 0,0 7,8A5,5 0 0,0 12,13A5,5 0 0,0 17,8A5,5 0 0,0 12,3M12,23L8,19H16L12,23Z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8">
+      <!-- Header Section -->
+      <div class="text-center fade-in mb-8">
+        <button
+          onclick="goBack()"
+          class="mb-6 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-2 rounded-full hover:from-pink-600 hover:to-rose-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+        >
+          <span class="cormorant text-lg">← Volver a la Invitación</span>
+        </button>
+        <h1
+          class="dancing-script text-6xl md:text-8xl text-pink-700 mb-4 drop-shadow-lg"
+        >
+          Datos Bancarios
+        </h1>
+        <div
+          class="w-32 h-1 bg-gradient-to-r from-pink-400 to-rose-400 mx-auto mb-4"
+        ></div>
+        <p class="cormorant text-xl text-pink-700">
+          Para confirmar tu asistencia a los XV de Bianca
+        </p>
+      </div>
+
+      <!-- Bank Data Section -->
+      <div class="max-w-2xl mx-auto space-y-6">
+        <!-- CVU Section -->
+        <div
+          class="glass-effect rounded-2xl p-6 shadow-xl pulse-pink fade-in"
+          style="animation-delay: 0.5s"
+        >
+          <div class="flex justify-center mb-4">
+            <svg
+              class="w-12 h-12 text-pink-600"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"
+              />
+            </svg>
+          </div>
+          <h3 class="dancing-script text-3xl text-pink-700 text-center mb-4">
+            Mercado Pago
+          </h3>
+          <div class="space-y-4">
+            <div class="bg-white bg-opacity-30 rounded-xl p-4">
+              <p class="cormorant text-sm text-pink-600 mb-1">CVU</p>
+              <div class="flex items-center justify-between">
+                <p
+                  class="cormorant text-lg font-semibold text-pink-800"
+                  id="cvu"
+                >
+                  0000003100082547368925
+                </p>
+                <button
+                  onclick="copyToClipboard('cvu')"
+                  class="copy-button bg-pink-500 text-white px-3 py-1 rounded-lg text-sm hover:bg-pink-600"
+                >
+                  Copiar
+                </button>
+              </div>
+            </div>
+            <div class="bg-white bg-opacity-30 rounded-xl p-4">
+              <p class="cormorant text-sm text-pink-600 mb-1">Alias</p>
+              <div class="flex items-center justify-between">
+                <p
+                  class="cormorant text-lg font-semibold text-pink-800"
+                  id="alias"
+                >
+                  BIANCA.XV.2026
+                </p>
+                <button
+                  onclick="copyToClipboard('alias')"
+                  class="copy-button bg-pink-500 text-white px-3 py-1 rounded-lg text-sm hover:bg-pink-600"
+                >
+                  Copiar
+                </button>
+              </div>
+            </div>
+            <div class="bg-white bg-opacity-30 rounded-xl p-4">
+              <p class="cormorant text-sm text-pink-600 mb-1">Titular</p>
+              <p class="cormorant text-lg font-semibold text-pink-800">
+                María Elena Rodríguez
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bank Account Section -->
+        <div
+          class="glass-effect rounded-2xl p-6 shadow-xl fade-in"
+          style="animation-delay: 1s"
+        >
+          <div class="flex justify-center mb-4">
+            <svg
+              class="w-12 h-12 text-pink-600"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M5,6H23V18H5V6M14,9A3,3 0 0,1 17,12A3,3 0 0,1 14,15A3,3 0 0,1 11,12A3,3 0 0,1 14,9M9,8A2,2 0 0,1 7,10V14A2,2 0 0,1 9,16H19A2,2 0 0,1 21,14V10A2,2 0 0,1 19,8H9Z"
+              />
+            </svg>
+          </div>
+          <h3 class="dancing-script text-3xl text-pink-700 text-center mb-4">
+            Banco Nación
+          </h3>
+          <div class="space-y-4">
+            <div class="bg-white bg-opacity-30 rounded-xl p-4">
+              <p class="cormorant text-sm text-pink-600 mb-1">CBU</p>
+              <div class="flex items-center justify-between">
+                <p
+                  class="cormorant text-lg font-semibold text-pink-800"
+                  id="cbu"
+                >
+                  0110599520000047825639
+                </p>
+                <button
+                  onclick="copyToClipboard('cbu')"
+                  class="copy-button bg-pink-500 text-white px-3 py-1 rounded-lg text-sm hover:bg-pink-600"
+                >
+                  Copiar
+                </button>
+              </div>
+            </div>
+            <div class="bg-white bg-opacity-30 rounded-xl p-4">
+              <p class="cormorant text-sm text-pink-600 mb-1">Alias</p>
+              <div class="flex items-center justify-between">
+                <p
+                  class="cormorant text-lg font-semibold text-pink-800"
+                  id="bank-alias"
+                >
+                  XV.BIANCA.ABRIL
+                </p>
+                <button
+                  onclick="copyToClipboard('bank-alias')"
+                  class="copy-button bg-pink-500 text-white px-3 py-1 rounded-lg text-sm hover:bg-pink-600"
+                >
+                  Copiar
+                </button>
+              </div>
+            </div>
+            <div class="bg-white bg-opacity-30 rounded-xl p-4">
+              <p class="cormorant text-sm text-pink-600 mb-1">Titular</p>
+              <p class="cormorant text-lg font-semibold text-pink-800">
+                María Elena Rodríguez
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pricing Reminder -->
+        <div
+          class="glass-effect rounded-2xl p-6 shadow-xl fade-in"
+          style="animation-delay: 1.5s"
+        >
+          <h3 class="dancing-script text-3xl text-pink-700 text-center mb-4">
+            Recordá los Precios
+          </h3>
+          <div class="grid grid-cols-2 gap-4 text-center">
+            <div class="bg-white bg-opacity-30 rounded-xl p-4">
+              <p class="cormorant text-sm text-pink-600 mb-1">Adulto</p>
+              <p class="dancing-script text-2xl text-pink-800 font-bold">
+                $65.000
+              </p>
+            </div>
+            <div class="bg-white bg-opacity-30 rounded-xl p-4">
+              <p class="cormorant text-sm text-pink-600 mb-1">Adolescente</p>
+              <p class="dancing-script text-2xl text-pink-800 font-bold">
+                $35.000
+              </p>
+            </div>
+            <div class="bg-white bg-opacity-30 rounded-xl p-4">
+              <p class="cormorant text-sm text-pink-600 mb-1">Niños (4-11)</p>
+              <p class="dancing-script text-2xl text-pink-800 font-bold">
+                $30.000
+              </p>
+            </div>
+            <div class="bg-white bg-opacity-30 rounded-xl p-4">
+              <p class="cormorant text-sm text-pink-600 mb-1">Brindis 23hs</p>
+              <p class="dancing-script text-2xl text-pink-800 font-bold">
+                $21.000
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instructions -->
+        <div
+          class="glass-effect rounded-2xl p-6 shadow-xl fade-in"
+          style="animation-delay: 2s"
+        >
+          <div class="flex justify-center mb-4">
+            <svg
+              class="w-12 h-12 text-pink-600"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+              />
+            </svg>
+          </div>
+          <h3 class="dancing-script text-3xl text-pink-700 text-center mb-4">
+            Instrucciones
+          </h3>
+          <div class="space-y-3 cormorant text-lg text-pink-700">
+            <p>• Realizá la transferencia por el monto correspondiente</p>
+            <p>• Envía el comprobante por WhatsApp</p>
+            <p>• Incluí tu nombre completo en el mensaje</p>
+            <p>• Especificá la cantidad de personas</p>
+          </div>
+        </div>
+
+        <!-- WhatsApp Button -->
+        <div class="text-center fade-in" style="animation-delay: 2.5s">
+          <button
+            onclick="sendWhatsApp()"
+            class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-4 rounded-full hover:from-pink-600 hover:to-rose-600 transition-all duration-300 transform hover:scale-105 shadow-xl"
+          >
+            <div class="flex items-center space-x-3">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.864 3.488"
+                />
+              </svg>
+              <span class="dancing-script text-xl">Enviar Comprobante</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function goBack() {
+        window.location.href = "bianca-xv.html";
+      }
+
+      function copyToClipboard(elementId) {
+        const element = document.getElementById(elementId);
+        const text = element.textContent;
+
+        navigator.clipboard
+          .writeText(text)
+          .then(() => {
+            const button = element.parentElement.querySelector("button");
+            const originalText = button.textContent;
+            button.textContent = "¡Copiado!";
+            button.classList.add("copied");
+
+            setTimeout(() => {
+              button.textContent = originalText;
+              button.classList.remove("copied");
+            }, 2000);
+          })
+          .catch(() => {
+            // Fallback para navegadores más antiguos
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+
+            const button = element.parentElement.querySelector("button");
+            const originalText = button.textContent;
+            button.textContent = "¡Copiado!";
+            button.classList.add("copied");
+
+            setTimeout(() => {
+              button.textContent = originalText;
+              button.classList.remove("copied");
+            }, 2000);
+          });
+      }
+
+      function sendWhatsApp() {
+        const message =
+          "Hola! Te envío el comprobante de pago para los XV de Bianca (25/04/2026). Mi nombre es: [Tu nombre completo]. Cantidad de personas: [cantidad]";
+        window.open(
+          `https://wa.me/1234567890?text=${encodeURIComponent(message)}`,
+          "_blank"
+        );
+      }
+
+      // Smooth scroll animation for elements
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = "running";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

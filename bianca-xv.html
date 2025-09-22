@@ -75,8 +75,9 @@
     </style>
   </head>
   <body class="bg-gradient-pink min-h-screen overflow-x-hidden">
-    <!-- Decorative floating elements -->
+    <!-- Decorative floating elements and flowers -->
     <div class="fixed inset-0 pointer-events-none">
+      <!-- Floating dots -->
       <div
         class="absolute top-10 left-10 w-4 h-4 bg-pink-300 rounded-full opacity-60 floating"
         style="animation-delay: 0s"
@@ -93,6 +94,100 @@
         class="absolute bottom-20 right-16 w-3 h-3 bg-rose-400 rounded-full opacity-70 floating"
         style="animation-delay: 3s"
       ></div>
+
+      <!-- Corner flowers -->
+      <!-- Top left flower -->
+      <div class="absolute top-4 left-4 floating" style="animation-delay: 1.5s">
+        <svg
+          class="w-12 h-12 text-pink-400 opacity-70"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16Z"
+          />
+          <circle cx="12" cy="12" r="2" />
+        </svg>
+      </div>
+
+      <!-- Top right flower -->
+      <div
+        class="absolute top-4 right-4 floating"
+        style="animation-delay: 2.5s"
+      >
+        <svg
+          class="w-10 h-10 text-rose-400 opacity-60"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M8.66,13.07L7.25,14.48C5.07,12.31 5.07,8.69 7.25,6.52L8.66,7.93C7.84,8.75 7.84,10.25 8.66,13.07M15.34,13.07C16.16,10.25 16.16,8.75 15.34,7.93L16.75,6.52C18.93,8.69 18.93,12.31 16.75,14.48L15.34,13.07M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"
+          />
+        </svg>
+      </div>
+
+      <!-- Bottom left flower -->
+      <div
+        class="absolute bottom-4 left-4 floating"
+        style="animation-delay: 0.8s"
+      >
+        <svg
+          class="w-14 h-14 text-pink-300 opacity-50"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,5A3,3 0 0,1 22,8V14A3,3 0 0,1 19,17A3,3 0 0,1 16,14V8A3,3 0 0,1 19,5M5,8A3,3 0 0,1 8,11V17A3,3 0 0,1 5,20A3,3 0 0,1 2,17V11A3,3 0 0,1 5,8M12,16A3,3 0 0,1 15,19V22H9V19A3,3 0 0,1 12,16Z"
+          />
+        </svg>
+      </div>
+
+      <!-- Bottom right flower -->
+      <div
+        class="absolute bottom-4 right-4 floating"
+        style="animation-delay: 3.2s"
+      >
+        <svg
+          class="w-11 h-11 text-rose-300 opacity-65"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,15A7,7 0 0,1 5,8A7,7 0 0,1 12,1A7,7 0 0,1 19,8A7,7 0 0,1 12,15M12,3A5,5 0 0,0 7,8A5,5 0 0,0 12,13A5,5 0 0,0 17,8A5,5 0 0,0 12,3M12,23L8,19H16L12,23Z"
+          />
+        </svg>
+      </div>
+
+      <!-- Additional small flowers scattered -->
+      <div
+        class="absolute top-20 left-1/4 floating"
+        style="animation-delay: 4s"
+      >
+        <svg
+          class="w-6 h-6 text-pink-300 opacity-40"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,2L14.09,6.26L18.18,6.26L15.09,9.74L16.18,14L12,11.26L7.82,14L8.91,9.74L5.82,6.26L9.91,6.26L12,2Z"
+          />
+        </svg>
+      </div>
+
+      <div
+        class="absolute bottom-1/3 right-1/4 floating"
+        style="animation-delay: 5s"
+      >
+        <svg
+          class="w-7 h-7 text-rose-300 opacity-45"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12,2L14.09,6.26L18.18,6.26L15.09,9.74L16.18,14L12,11.26L7.82,14L8.91,9.74L5.82,6.26L9.91,6.26L12,2Z"
+          />
+        </svg>
+      </div>
     </div>
 
     <div class="container mx-auto px-4 py-8">
@@ -113,20 +208,9 @@
         <div
           class="glass-effect rounded-3xl p-8 mx-auto max-w-md shadow-2xl pulse-pink"
         >
-          <h2 class="dancing-script text-6xl md:text-7xl text-pink-800 mb-4">
+          <h2 class="dancing-script text-6xl md:text-7xl text-pink-800 mb-6">
             Bianca
           </h2>
-          <div class="flex justify-center mb-6">
-            <svg
-              class="w-16 h-16 text-pink-600"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-              />
-            </svg>
-          </div>
         </div>
       </div>
 
@@ -136,17 +220,14 @@
           <p class="cormorant text-2xl text-pink-700 mb-4">
             Te invito a celebrar conmigo
           </p>
-          <div class="flex justify-center items-center space-x-4 mb-4">
-            <div class="text-center">
-              <p class="cormorant text-lg text-pink-600">Viernes</p>
-              <p class="dancing-script text-5xl text-pink-800 font-bold">25</p>
-            </div>
-            <div class="text-center">
-              <p class="cormorant text-lg text-pink-600">Abril</p>
-              <p class="dancing-script text-3xl text-pink-800">2026</p>
-            </div>
+          <div class="mb-4">
+            <p class="cormorant text-lg text-pink-600 mb-2">Sábado</p>
+            <p class="dancing-script text-5xl text-pink-800 font-bold mb-2">
+              25 de Abril
+            </p>
+            <p class="dancing-script text-3xl text-pink-800 mb-2">2026</p>
+            <p class="cormorant text-xl text-pink-700">20:30 hs</p>
           </div>
-          <p class="cormorant text-xl text-pink-700">20:30 hs</p>
         </div>
       </div>
 
@@ -181,7 +262,7 @@
             Salón de Eventos "La Rosa"
           </p>
           <p class="cormorant text-lg text-pink-600 mb-6">
-            Av. Libertador 1234, Buenos Aires
+            Avenida Irigoyen 2037<br />San Nicolás de los Arroyos
           </p>
           <button
             onclick="openLocation()"
@@ -203,7 +284,7 @@
           </p>
           <button
             onclick="confirmAttendance()"
-            class="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-full hover:from-green-600 hover:to-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-3 rounded-full hover:from-pink-600 hover:to-rose-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             <span class="cormorant text-lg">Confirmar por WhatsApp</span>
           </button>
@@ -264,7 +345,7 @@
             <p><strong>Brindis 23hs:</strong> $21.000</p>
           </div>
           <button
-            onclick="showBankData()"
+            onclick="redirectToBankData()"
             class="mt-6 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-3 rounded-full hover:from-pink-600 hover:to-rose-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
             <span class="cormorant text-lg">Datos Bancarios</span>
@@ -339,7 +420,7 @@
       // Functions for buttons
       function openLocation() {
         window.open(
-          "https://maps.google.com/?q=Salon+de+Eventos+La+Rosa+Buenos+Aires",
+          "https://maps.google.com/?q=Avenida+Irigoyen+2037+San+Nicolas+de+los+Arroyos",
           "_blank"
         );
       }
@@ -353,10 +434,9 @@
         );
       }
 
-      function showBankData() {
-        alert(
-          "Datos Bancarios:\n\nBanco: Banco Nación\nCBU: 0110599520000012345678\nAlias: BIANCA.XV.2026\nTitular: [Nombre del titular]"
-        );
+      function redirectToBankData() {
+        // Para desarrollo local, cambiar la URL
+        window.location.href = "datosbancarios.html";
       }
 
       // Smooth scroll animation for elements
