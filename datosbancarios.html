@@ -74,12 +74,59 @@
       .copy-button:hover {
         transform: scale(1.05);
       }
-      .copied {
-        background: #10b981 !important;
+
+      /* Toast notification styles */
+      .toast {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #ec4899, #db2777);
+        color: white;
+        padding: 16px 24px;
+        border-radius: 50px;
+        box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .toast.show {
+        opacity: 1;
+        visibility: visible;
+        animation: toastBounce 0.5s ease-out;
+      }
+
+      @keyframes toastBounce {
+        0% {
+          transform: translateX(-50%) translateY(100px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+        80% {
+          transform: translateX(-50%) translateY(5px);
+        }
+        100% {
+          transform: translateX(-50%) translateY(0px);
+        }
       }
     </style>
   </head>
   <body class="bg-gradient-pink min-h-screen overflow-x-hidden">
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+      <div class="flex items-center space-x-2">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+          />
+        </svg>
+        <span class="cormorant font-semibold">¡Copiado al portapapeles!</span>
+      </div>
+    </div>
+
     <!-- Decorative floating elements and flowers -->
     <div class="fixed inset-0 pointer-events-none">
       <!-- Corner flowers -->
@@ -376,7 +423,16 @@
 
     <script>
       function goBack() {
-        window.location.href = "bianca-xv.html";
+        window.location.href = "index.html";
+      }
+
+      function showToast() {
+        const toast = document.getElementById("toast");
+        toast.classList.add("show");
+
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3000);
       }
 
       function copyToClipboard(elementId) {
@@ -386,18 +442,9 @@
         navigator.clipboard
           .writeText(text)
           .then(() => {
-            const button = element.parentElement.querySelector("button");
-            const originalText = button.textContent;
-            button.textContent = "¡Copiado!";
-            button.classList.add("copied");
-
-            setTimeout(() => {
-              button.textContent = originalText;
-              button.classList.remove("copied");
-            }, 2000);
+            showToast();
           })
           .catch(() => {
-            //
             // Fallback para navegadores más antiguos
             const textarea = document.createElement("textarea");
             textarea.value = text;
@@ -406,15 +453,7 @@
             document.execCommand("copy");
             document.body.removeChild(textarea);
 
-            const button = element.parentElement.querySelector("button");
-            const originalText = button.textContent;
-            button.textContent = "¡Copiado!";
-            button.classList.add("copied");
-
-            setTimeout(() => {
-              button.textContent = originalText;
-              button.classList.remove("copied");
-            }, 2000);
+            showToast();
           });
       }
 
