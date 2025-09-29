@@ -9,129 +9,289 @@
       href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
-    <style>
-      .dancing-script {
-        font-family: "Dancing Script", cursive;
-      }
-      .cormorant {
-        font-family: "Cormorant Garamond", serif;
-      }
-      .bg-gradient-pink {
-        background: linear-gradient(
-          135deg,
-          #fdf2f8 0%,
-          #fce7f3 25%,
-          #fbcfe8 50%,
-          #f9a8d4 75%,
-          #f472b6 100%
-        );
-      }
-      .glass-effect {
-        background: rgba(255, 255, 255, 0.25);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.18);
-      }
-      .floating {
-        animation: float 6s ease-in-out infinite;
-      }
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-      }
-      .fade-in {
-        animation: fadeIn 2s ease-in;
-      }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .pulse-pink {
-        animation: pulsePink 3s infinite;
-      }
-      @keyframes pulsePink {
-        0%,
-        100% {
-          box-shadow: 0 0 20px rgba(244, 114, 182, 0.5);
-        }
-        50% {
-          box-shadow: 0 0 40px rgba(244, 114, 182, 0.8);
-        }
-      }
-      .countdown-digit {
-        background: linear-gradient(135deg, #f9a8d4, #f472b6);
-        box-shadow: 0 10px 25px rgba(244, 114, 182, 0.3);
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="bg-gradient-pink min-h-screen overflow-x-hidden">
     <!-- Decorative floating elements and flowers -->
-    <div class="fixed inset-0 pointer-events-none">
-      <!-- Floating dots -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+      <!-- Falling Cherry Blossoms - MUCHOS MÁS PÉTALOS -->
       <div
-        class="absolute top-10 left-10 w-4 h-4 bg-pink-300 rounded-full opacity-60 floating"
-        style="animation-delay: 0s"
-      ></div>
-      <div
-        class="absolute top-32 right-20 w-6 h-6 bg-rose-300 rounded-full opacity-50 floating"
-        style="animation-delay: 1s"
-      ></div>
-      <div
-        class="absolute bottom-32 left-16 w-5 h-5 bg-pink-400 rounded-full opacity-40 floating"
-        style="animation-delay: 2s"
-      ></div>
-      <div
-        class="absolute bottom-20 right-16 w-3 h-3 bg-rose-400 rounded-full opacity-70 floating"
-        style="animation-delay: 3s"
-      ></div>
-
-      <!-- Corner flowers -->
-      <!-- Top left flower -->
-      <div class="absolute top-4 left-4 floating" style="animation-delay: 1.5s">
-        <svg
-          class="w-12 h-12 text-pink-400 opacity-70"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16Z"
-          />
-          <circle cx="12" cy="12" r="2" />
-        </svg>
-      </div>
-
-      <!-- Audio Element -->
-      <audio id="backgroundMusic" loop>
-        <source src="./Ed Sheeran - Perfect.mp3" type="audio/mpeg" />
-      </audio>
-
-      <!-- Top right flower -->
-      <div
-        class="absolute top-4 right-4 floating"
-        style="animation-delay: 2.5s"
+        class="cherry-blossom absolute"
+        style="left: 5%; animation-delay: 0s"
       >
         <svg
-          class="w-10 h-10 text-rose-400 opacity-60"
+          class="w-6 h-6 text-pink-300 opacity-70"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
           <path
-            d="M8.66,13.07L7.25,14.48C5.07,12.31 5.07,8.69 7.25,6.52L8.66,7.93C7.84,8.75 7.84,10.25 8.66,13.07M15.34,13.07C16.16,10.25 16.16,8.75 15.34,7.93L16.75,6.52C18.93,8.69 18.93,12.31 16.75,14.48L15.34,13.07M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8Z"
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 10%; animation-delay: 2s"
+      >
+        <svg
+          class="w-8 h-8 text-pink-300 opacity-70"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 18%; animation-delay: 7s"
+      >
+        <svg
+          class="w-7 h-7 text-rose-300 opacity-60"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 25%; animation-delay: 3s"
+      >
+        <svg
+          class="w-6 h-6 text-pink-400 opacity-60"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 33%; animation-delay: 1s"
+      >
+        <svg
+          class="w-8 h-8 text-pink-300 opacity-75"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 40%; animation-delay: 6s"
+      >
+        <svg
+          class="w-7 h-7 text-rose-300 opacity-65"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 48%; animation-delay: 4s"
+      >
+        <svg
+          class="w-6 h-6 text-pink-400 opacity-70"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 55%; animation-delay: 2s"
+      >
+        <svg
+          class="w-9 h-9 text-pink-300 opacity-50"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 62%; animation-delay: 9s"
+      >
+        <svg
+          class="w-7 h-7 text-rose-400 opacity-65"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 70%; animation-delay: 8s"
+      >
+        <svg
+          class="w-7 h-7 text-rose-400 opacity-70"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 77%; animation-delay: 3.5s"
+      >
+        <svg
+          class="w-6 h-6 text-pink-300 opacity-60"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 85%; animation-delay: 5s"
+      >
+        <svg
+          class="w-6 h-6 text-pink-400 opacity-55"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 92%; animation-delay: 6.5s"
+      >
+        <svg
+          class="w-8 h-8 text-rose-300 opacity-70"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 15%; animation-delay: 10s"
+      >
+        <svg
+          class="w-8 h-8 text-rose-300 opacity-60"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 12%; animation-delay: 5.5s"
+      >
+        <svg
+          class="w-7 h-7 text-pink-400 opacity-65"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 28%; animation-delay: 8.5s"
+      >
+        <svg
+          class="w-6 h-6 text-rose-300 opacity-70"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 65%; animation-delay: 4.5s"
+      >
+        <svg
+          class="w-8 h-8 text-pink-300 opacity-60"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
+          />
+        </svg>
+      </div>
+      <div
+        class="cherry-blossom absolute"
+        style="left: 88%; animation-delay: 11s"
+      >
+        <svg
+          class="w-7 h-7 text-rose-400 opacity-65"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2c-.5 0-1 .5-1 1.5 0 .8.4 1.4.9 1.8-.3.2-.5.5-.5.9 0 .6.4 1 1 1h.2c-.1.2-.1.4-.1.6 0 .6.4 1.2 1 1.4-.4.2-.7.7-.7 1.2 0 .8.7 1.5 1.5 1.5h.4c-.2.3-.3.6-.3 1 0 1 .8 1.8 1.8 1.8.5 0 1-.2 1.3-.6.3.4.8.6 1.3.6 1 0 1.8-.8 1.8-1.8 0-.4-.1-.7-.3-1h.4c.8 0 1.5-.7 1.5-1.5 0-.5-.3-1-.7-1.2.6-.2 1-.8 1-1.4 0-.2 0-.4-.1-.6h.2c.6 0 1-.4 1-1 0-.4-.2-.7-.5-.9.5-.4.9-1 .9-1.8C13 2.5 12.5 2 12 2z"
           />
         </svg>
       </div>
 
-      <!-- Bottom left flower -->
+      <!-- Imagen PNG en esquina superior derecha -->
+      <div
+        class="absolute top-4 right-4 floating pointer-events-auto"
+        style="animation-delay: 1s"
+      >
+        <img
+          src="flowerss.png"
+          alt="Decoración floral"
+          class="w-80 h-80 md:w-40 md:h-40 opacity-80"
+        />
+      </div>
+
+      <!-- Imagen PNG en esquina superior izquierda -->
+      <div
+        class="absolute top-4 left-4 floating pointer-events-auto"
+        style="animation-delay: 1.2s"
+      >
+        <img
+          src="flowersizq.png"
+          alt="Decoración floral"
+          class="w-80 h-80 md:w-40 md:h-40 opacity-80"
+        />
+      </div>
+
       <div
         class="absolute bottom-4 left-4 floating"
         style="animation-delay: 0.8s"
@@ -146,8 +306,6 @@
           />
         </svg>
       </div>
-
-      <!-- Bottom right flower -->
       <div
         class="absolute bottom-4 right-4 floating"
         style="animation-delay: 3.2s"
@@ -162,38 +320,12 @@
           />
         </svg>
       </div>
-
-      <!-- Additional small flowers scattered -->
-      <div
-        class="absolute top-20 left-1/4 floating"
-        style="animation-delay: 4s"
-      >
-        <svg
-          class="w-6 h-6 text-pink-300 opacity-40"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12,2L14.09,6.26L18.18,6.26L15.09,9.74L16.18,14L12,11.26L7.82,14L8.91,9.74L5.82,6.26L9.91,6.26L12,2Z"
-          />
-        </svg>
-      </div>
-
-      <div
-        class="absolute bottom-1/3 right-1/4 floating"
-        style="animation-delay: 5s"
-      >
-        <svg
-          class="w-7 h-7 text-rose-300 opacity-45"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12,2L14.09,6.26L18.18,6.26L15.09,9.74L16.18,14L12,11.26L7.82,14L8.91,9.74L5.82,6.26L9.91,6.26L12,2Z"
-          />
-        </svg>
-      </div>
     </div>
+
+    <!-- Audio Element -->
+    <audio id="backgroundMusic" loop>
+      <source src="./Ed Sheeran - Perfect.mp3" type="audio/mpeg" />
+    </audio>
 
     <div class="container mx-auto px-4 py-8">
       <!-- Header Section with Music Player -->
@@ -270,8 +402,6 @@
           class="w-32 h-1 bg-gradient-to-r from-pink-400 to-rose-400 mx-auto mb-8"
         ></div>
       </div>
-
-      <!-- Main Name Section - REMOVED -->
 
       <!-- Date Section -->
       <div class="text-center mb-12 fade-in" style="animation-delay: 1s">
@@ -450,115 +580,7 @@
       </div>
     </div>
 
-    <script>
-      // Countdown Timer
-      function updateCountdown() {
-        const eventDate = new Date("2026-04-25T20:30:00").getTime();
-        const now = new Date().getTime();
-        const distance = eventDate - now;
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("days").textContent = days
-          .toString()
-          .padStart(3, "0");
-        document.getElementById("hours").textContent = hours
-          .toString()
-          .padStart(2, "0");
-        document.getElementById("minutes").textContent = minutes
-          .toString()
-          .padStart(2, "0");
-        document.getElementById("seconds").textContent = seconds
-          .toString()
-          .padStart(2, "0");
-
-        if (distance < 0) {
-          document.getElementById("countdown").innerHTML =
-            "<h3 class='dancing-script text-4xl text-pink-700'>¡Es hoy!</h3>";
-        }
-      }
-
-      // Update countdown every second
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
-
-      // Functions for buttons
-      function openLocation() {
-        window.open(
-          "https://maps.google.com/?q=Avenida+Irigoyen+2037+San+Nicolas+de+los+Arroyos",
-          "_blank"
-        );
-      }
-
-      function confirmAttendance() {
-        const message =
-          "Hola! Quiero confirmar mi asistencia a los XV de Bianca el 25/04/2026";
-        window.open(
-          `https://wa.me/1234567890?text=${encodeURIComponent(message)}`,
-          "_blank"
-        );
-      }
-
-      function redirectToBankData() {
-        // Para desarrollo local, cambiar la URL
-        window.location.href = "datosbancarios.html";
-      }
-
-      // Music player functionality
-      let isPlaying = false;
-      const audio = document.getElementById("backgroundMusic");
-      const playIcon = document.getElementById("playIcon");
-      const pauseIcon = document.getElementById("pauseIcon");
-      const musicWaves = document.querySelectorAll(".music-wave");
-
-      function toggleMusic() {
-        if (isPlaying) {
-          audio.pause();
-          playIcon.classList.remove("hidden");
-          pauseIcon.classList.add("hidden");
-          musicWaves.forEach((wave) => wave.classList.remove("playing"));
-          isPlaying = false;
-        } else {
-          // Nota: Los navegadores requieren interacción del usuario para reproducir audio
-          audio
-            .play()
-            .then(() => {
-              playIcon.classList.add("hidden");
-              pauseIcon.classList.remove("hidden");
-              musicWaves.forEach((wave) => wave.classList.add("playing"));
-              isPlaying = true;
-            })
-            .catch((error) => {
-              console.log("Error al reproducir audio:", error);
-              alert(
-                "Para reproducir música, necesitás hacer click primero en la página"
-              );
-            });
-        }
-      }
-
-      // Smooth scroll animation for elements
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.animationPlayState = "running";
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll(".fade-in").forEach((el) => {
-        observer.observe(el);
-      });
-    </script>
+    <script src="main.js"></script>
+    <script src="music-player.js"></script>
   </body>
 </html>

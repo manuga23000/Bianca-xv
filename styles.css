@@ -1,0 +1,167 @@
+/* Fuentes personalizadas */
+.dancing-script {
+  font-family: "Dancing Script", cursive;
+}
+
+.cormorant {
+  font-family: "Cormorant Garamond", serif;
+}
+
+/* Gradiente de fondo principal */
+.bg-gradient-pink {
+  background: linear-gradient(
+    135deg,
+    #fdf2f8 0%,
+    #fce7f3 25%,
+    #fbcfe8 50%,
+    #f9a8d4 75%,
+    #f472b6 100%
+  );
+}
+
+/* Efecto de vidrio */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Animación flotante */
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+/* Animación de entrada con fade */
+.fade-in {
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efecto de pulso rosa */
+.pulse-pink {
+  animation: pulsePink 3s infinite;
+}
+
+@keyframes pulsePink {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(244, 114, 182, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(244, 114, 182, 0.8);
+  }
+}
+
+/* Dígitos del contador */
+.countdown-digit {
+  background: linear-gradient(135deg, #f9a8d4, #f472b6);
+  box-shadow: 0 10px 25px rgba(244, 114, 182, 0.3);
+}
+
+/* Animación de flores cayendo (cherry blossom) */
+.cherry-blossom {
+  animation: fallAndSway 15s infinite ease-in-out;
+}
+
+@keyframes fallAndSway {
+  0% {
+    transform: translateY(-100px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Ondas de música */
+.music-wave {
+  animation: wave 1s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.5);
+  }
+}
+
+.music-wave.playing {
+  animation: wave 0.6s ease-in-out infinite;
+}
+
+/* Botón de copiar */
+.copy-button {
+  transition: all 0.3s ease;
+}
+
+.copy-button:hover {
+  transform: scale(1.05);
+}
+
+/* Toast notification */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  animation: toastBounce 0.5s ease-out;
+}
+
+@keyframes toastBounce {
+  0% {
+    transform: translateX(-50%) translateY(100px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  80% {
+    transform: translateX(-50%) translateY(5px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+}
