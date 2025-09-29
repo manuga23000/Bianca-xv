@@ -100,6 +100,26 @@
   }
 }
 
+/* Responsive para pétalos en mobile */
+@media (max-width: 768px) {
+  .cherry-blossom svg {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+  }
+
+  /* Ocultar algunos pétalos en mobile para que no se vea tan cargado */
+  .cherry-blossom:nth-child(3),
+  .cherry-blossom:nth-child(5),
+  .cherry-blossom:nth-child(7),
+  .cherry-blossom:nth-child(9),
+  .cherry-blossom:nth-child(11),
+  .cherry-blossom:nth-child(13),
+  .cherry-blossom:nth-child(15),
+  .cherry-blossom:nth-child(17) {
+    display: none;
+  }
+}
+
 /* Ondas de música */
 .music-wave {
   animation: wave 1s ease-in-out infinite;
